@@ -99,3 +99,8 @@ ENV/
 
 # mypy
 .mypy_cache/
+.vscode/arduino.json
+.vscode/c_cpp_properties.json
+.vscode/tasks.json
+example.py
+Oswald.ttf
