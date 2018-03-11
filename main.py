@@ -80,10 +80,10 @@ class Oscilloscope():
         self.hold = False
         self.screen = pygame.display.set_mode(
             (self.screen_widght, self.screen_height))
-        self.icon = pygame.image.load('icono.png')
+        self.icon = pygame.image.load('icon.png')
         pygame.display.set_icon(self.icon)
         pygame.display.set_caption("Osciloscopio")
-        self.font = pygame.font.Font("Oswald.ttf", 20)
+        self.font = pygame.font.Font("font.ttf", 20)
         self.clock = pygame.time.Clock()
         
         self.reader = DataReader()
@@ -105,9 +105,9 @@ class Oscilloscope():
 
         #Draw grid
         for i in range(10):
-            pygame.draw.line(self.screen, (210, 210, 210),
+            pygame.draw.line(self.screen, (220, 220, 220),
                              (0, int(h*0.1*i)), (w-1, int(h*0.1*i)), 1)
-            pygame.draw.line(self.screen, (210, 210, 210), (int(
+            pygame.draw.line(self.screen, (220, 220, 220), (int(
                 w*0.1*i), 0), (int(w*0.1*i), h-1), 1)
 
         pygame.draw.line(self.screen, (0, 0, 0), (0, h), (w, h), 1)
@@ -166,8 +166,6 @@ class Oscilloscope():
                 self.screen.blit(voltage_text, (self.screen_widght-60, self.screen_height-95))
                 self.screen.blit(filter_text, (5, self.screen_height-95))
                 self.screen.blit(hold_text, (5, self.screen_height-75))
-                pygame.draw.rect(self.screen, (179, 179, 179),
-                                 (0, self.screen_height-65, 100, 100), 0)
 
             pygame.display.flip()
             self.clock.tick(0)
