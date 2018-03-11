@@ -84,6 +84,7 @@ class Oscilloscope():
                        'panel_background': (230, 230, 230),
                        'button_normal': (50, 50, 50),
                        'button_pressed': (150, 150, 150),
+                       'button_border': (125, 125, 125),
                        'text_especial': (100, 100, 100),
                        'text_normal': (230, 230, 230)
                       }
@@ -133,7 +134,7 @@ class Oscilloscope():
 
         # Plot data
         for i in range(len(xp)-1):
-            pygame.draw.line(self.screen, (0, 0, 0), (int(xp[i]), int(yp[i])),
+            pygame.draw.aaline(self.screen, (0, 0, 0), (int(xp[i]), int(yp[i])),
                              (int(xp[i+1]), int(yp[i+1])), 1)
 
     def run(self):
@@ -211,6 +212,11 @@ class Oscilloscope():
                 pygame.draw.rect(self.screen, filter_color,
                                  self.rect_filter)
                 pygame.draw.rect(self.screen, hold_color, self.rect_hold)
+
+                pygame.draw.rect(self.screen, self.colors['button_border'],
+                                 self.rect_filter, 1)
+                pygame.draw.rect(self.screen, self.colors['button_border'],
+                                 self.rect_hold, 1)
 
                 self.screen.blit(filter_text, filter_text_rect)
                 self.screen.blit(hold_text, hold_text_rect)
